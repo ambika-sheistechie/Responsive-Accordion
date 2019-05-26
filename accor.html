@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <title>Accordion</title>
+
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-decoration: none;
+        list-style-type: none;
+    }
+
+    .wrapper
+    {
+        max-width: 80%;
+        margin: 130px auto;
+        text-align: center;
+    }
+
+    li > a{
+        background: rgb(223, 31, 6);
+        color: white;
+        padding:10px 0;
+        position: relative;
+    }
+
+    .main_menu::before{
+        background: rgb(223, 31, 6);
+        content: "";
+        height: 15px;
+        width: 15px;
+        transform: rotate(45deg);
+        position: absolute;
+        z-index: 1;
+        left: 50px;
+        bottom: -7px;
+    }
+
+    a
+    {
+        display: block;
+    }
+
+    .smenu
+    {
+        background: #252525;
+        max-height:0;
+        overflow: hidden;
+        transition:max-height .4s ease-in-out;
+    }
+
+    i
+    {
+        margin-left: 2px;
+    }
+
+    .smenu a
+    {
+        padding: 10px 0;
+        color: white;
+    }
+
+    .menu{
+        overflow: hidden;
+    }
+
+    .active
+    {
+        max-height: 6rem;
+    }
+
+    h1
+    {
+        color:rgb(32, 32, 32);
+    }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <h1>Responsive Accordion</h1>
+        <br>
+        <li class="menu" id="1">
+            <a href="#1" class="main_menu">Menu 1 <i class="fas fa-plus-circle"></i></a>
+            <div class="smenu">
+                <a href="">smenu 1</a>
+                <a href="">smenu 2</a>
+            </div>
+        </li>
+        <li class="menu" id="2">
+            <a href="#2" class="main_menu">Menu 2 <i class="fas fa-plus-circle"></i></a>
+            <div class="smenu">
+                <a href="">smenu 1</a>
+                <a href="">smenu 2</a>
+            </div>
+        </li>
+        <li class="menu" id="3">
+            <a href="#3" class="main_menu">Menu 3 <i class="fas fa-plus-circle"></i></a>
+            <div class="smenu">
+                <a href="">smenu 1</a>
+                <a href="">smenu 2</a>
+            </div>
+        </li>
+        <li class="menu" id="4">
+            <a href="#4" class="main_menu">Menu 4 <i class="fas fa-plus-circle"></i></a>
+            <div class="smenu">
+                <a href="">smenu 1</a>
+                <a href="">smenu 2</a>
+            </div>
+        </li>
+    </div>
+
+    <script>
+      
+    var accor=document.getElementsByClassName("main_menu");
+    var i;
+
+    for(i=0;i<accor.length;i++)
+    {
+        accor[i].addEventListener("click",function()
+        {
+        this.nextElementSibling.classList.toggle("active");
+        });
+    }
+
+    </script>
+</body>
+</html>
